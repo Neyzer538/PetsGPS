@@ -1,0 +1,85 @@
+:root{
+  --accent:#111827;
+  --muted:#6b7280;
+  --bg:#ffffff;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%;}
+body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:var(--accent)}
+.wrap{max-width:var(--max-width); margin:0 auto; padding:0 20px}
+.site-header{border-bottom:1px solid #eee}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-weight:700}
+.site-header nav a{margin-right:16px;color:var(--muted);text-decoration:none}
+.btn{background:#111827;color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+.btn.small{padding:8px 10px;font-size:14px}
+
+.container{display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:start;max-width:1200px;margin:28px auto;padding:0 20px}
+.hero{display:flex;gap:20px}
+.hero-left{padding-right:20px}
+.hero-right{display:flex;align-items:center;justify-content:center}
+.hero-image{width:100%;max-width:500px;border-radius:8px}
+.objectives .cards{display:flex;gap:12px;margin-top:12px}
+.card{background:#fff;border-radius:8px;padding:10px;width:160px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.card img{width:100%;height:90px;object-fit:cover;border-radius:6px}
+.sidebar .shop{background:#fff;padding:18px;border-radius:8px;border:1px solid #eee}
+.shop-card{display:flex;gap:12px;align-items:center;margin-top:12px}
+.shop-card img{width:84px}
+
+.features{padding:40px 20px;background:#f9fafb}
+.feature-grid{display:flex;gap:18px;margin-top:18px}
+.product-card{background:#fff;padding:14px;border-radius:8px;flex:1;text-align:center}
+.product-card img{width:100%;height:120px;object-fit:contain}
+.comments{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+
+.site-footer{border-top:1px solid #eee;padding:20px 0;margin-top:30px}
+.site-footer .wrap{display:flex;justify-content:space-between;align-items:center}
+
+@media (max-width:900px){
+  .container{grid-template-columns:1fr;}
+  .comments{grid-template-columns:1fr}
+  .feature-grid{flex-direction:column}
+}
+
+/* Pets UI styles */
+.pet-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.pet-card{display:flex;align-items:center;gap:10px;background:#fff;padding:8px;border-radius:8px;border:1px solid #eee}
+.pet-card img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+.pet-info{flex:1}
+.pet-info small{display:block;color:var(--muted)}
+.pet-actions{display:flex;gap:6px}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:60}
+.modal-card{background:#fff;padding:18px;border-radius:10px;max-width:420px;width:90%;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.modal-body{margin-top:8px}
+.addpet-form label{display:block;margin-top:8px;font-size:14px}
+.addpet-form input,.addpet-form select{width:100%;padding:8px;margin-top:6px;border:1px solid #e5e7eb;border-radius:6px}
+.image-options{display:flex;gap:8px;margin-top:8px}
+.img-choice{border:1px solid transparent;padding:4px;border-radius:6px;background:#fff}
+.img-choice img{width:64px;height:48px;object-fit:cover}
+.img-choice.active{border-color:#111827}
+
+.muted{color:var(--muted)}
+
+/* Login page styles */
+.login-page{display:flex;align-items:center;justify-content:center;min-height:70vh;padding:40px 16px}
+.login-card{background:#fff;padding:28px;border-radius:12px;box-shadow:0 12px 30px rgba(2,6,23,0.08);max-width:420px;width:100%}
+.login-card h2{margin:0 0 12px;font-size:22px}
+.login-form{display:block}
+.login-form label{display:block;margin-top:12px;font-size:13px;color:var(--muted)}
+.login-form input{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ee;margin-top:8px;font-size:15px}
+.login-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.login-actions .btn{padding:10px 16px}
+.login-actions a{font-size:13px;color:var(--muted);text-decoration:none}
+.login-footer{margin-top:16px;text-align:center;color:var(--muted);font-size:14px}
+.login-footer a{color:var(--accent);text-decoration:none;font-weight:600}
+
+@media (max-width:480px){
+  .login-card{padding:18px}
+  .login-actions{flex-direction:column;align-items:stretch}
+  .login-actions a{margin-top:8px;text-align:center}
+}
+
