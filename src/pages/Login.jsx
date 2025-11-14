@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Login(){
   return (
@@ -20,7 +21,7 @@ export default function Login(){
         </form>
 
         <div className="login-footer">
-          <p>¿No tienes cuenta? <a href="/register">Regístrate</a></p>
+          <p>¿No tienes cuenta? <Link to="/register">Regístrate</Link></p>
         </div>
       </div>
     </div>

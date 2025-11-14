@@ -4,16 +4,17 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Modal from './components/Modal'
 import AddPet from './components/AddPet'
-import PetList from './components/PetList'
-import Shop from './components/Shop'
+import PageLayout from './components/PageLayout'
 
 import Home from './pages/Home'
 import Catalog from './pages/Catalog'
 import Product from './pages/Product'
 import Info from './pages/Info'
 import Login from './pages/Login'
+import Register from './pages/Register'
+import MapView from './components/MapView'
 
-export default function App(){
+function AppContent() {
   const [pets, setPets] = useState([])
   const [showAdd, setShowAdd] = useState(false)
   const [selectedPet, setSelectedPet] = useState(null)
@@ -46,29 +47,60 @@ export default function App(){
   }
 
   return (
-    <div className="page">
-      <Header />
-
+    <>
       <Routes>
-        <Route path="/" element={<Home pets={pets} onOpenAdd={() => setShowAdd(true)} onRemove={removePet} onLocate={locatePet} />} />
-        <Route path="/informacion" element={<Info />} />
-        <Route path="/catalogo" element={<Catalog />} />
-        <Route path="/producto/:id" element={<Product />} />
+        <Route 
+          path="/" 
+          element={
+            <PageLayout pets={pets} onOpenAdd={() => setShowAdd(true)} onRemove={removePet} onLocate={locatePet}>
+              <Home />
+            </PageLayout>
+          } 
+        />
+        <Route 
+          path="/informacion" 
+          element={
+            <PageLayout pets={pets} onOpenAdd={() => setShowAdd(true)} onRemove={removePet} onLocate={locatePet}>
+              <Info />
+            </PageLayout>
+          } 
+        />
+        <Route 
+          path="/catalogo" 
+          element={
+            <PageLayout pets={pets} onOpenAdd={() => setShowAdd(true)} onRemove={removePet} onLocate={locatePet}>
+              <Catalog />
+            </PageLayout>
+          } 
+        />
+        <Route 
+          path="/producto/:id" 
+          element={
+            <PageLayout pets={pets} onOpenAdd={() => setShowAdd(true)} onRemove={removePet} onLocate={locatePet}>
+              <Product />
+            </PageLayout>
+          } 
+        />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
-
-      <Footer />
 
       {showAdd && <AddPet onClose={() => setShowAdd(false)} onAdd={addPet} />}
       {selectedPet && (
         <Modal onClose={() => setSelectedPet(null)}>
-          <div style={{textAlign:'center'}}>
-            <h3>Localizando: {selectedPet.name}</h3>
-            <img src="/src/assets/map.svg" alt="map" style={{width:'100%',maxWidth:360}} />
-            <p>Coordenadas simuladas: 12.3456, -98.7654</p>
-          </div>
+          <MapView pet={selectedPet} />
         </Modal>
       )}
+    </>
+  )
+}
+
+export default function App(){
+  return (
+    <div className="page">
+      <Header />
+      <AppContent />
+      <Footer />
     </div>
   )
 }
